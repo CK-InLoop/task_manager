@@ -152,14 +152,13 @@ export class TasksService {
     }
 
     // Update assignedTo if provided
-    if (updateTaskDto.assignedTo) {
-      (updateTaskDto as any).assignedTo = new Types.ObjectId(
-        updateTaskDto.assignedTo,
-      );
+    const updateData: any = { ...updateTaskDto };
+    if (updateData.assignedTo) {
+      updateData.assignedTo = new Types.ObjectId(updateData.assignedTo);
     }
 
     const updatedTask = await this.taskModel
-      .findByIdAndUpdate(id, updateTaskDto, { new: true })
+      .findByIdAndUpdate(id, updateData, { new: true })
       .populate('user', 'username email')
       .populate('assignedTo', 'username email')
       .exec();

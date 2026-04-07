@@ -1,7 +1,27 @@
-.env
-intern_task.pdf
-node_modules
+# Dependencies
 node_modules/
-dist/
-build/
+
+# Environment files
+.env
+backend/.env
+frontend/.env.local
+
+# Build outputs
+backend/dist/
+frontend/.next/
+frontend/out/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# PDF
+intern_task.pdf
+
+# Misc
 *.log
+backend/tsc_errors.txt
